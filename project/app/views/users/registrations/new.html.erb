@@ -1,0 +1,74 @@
+<section id="contact">
+  <div class="col-md-12 col-sm-6 col-xs-12">
+    <div class="contact-right wow fadeInRight">
+      <%= devise_error_messages! %>
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name),class: 'contact-form') do |f| %>
+<p id="notice"><%= notice %></p>
+    <div class="form-group">
+
+  <%= f.label :name %><br />
+
+    <%= f.text_field :name,class: 'form-control' , placeholder: "more than 5 char", autofocus: true %>
+  </div>
+
+
+  <div class="form-group">
+    <%= f.label :email %><br />
+    <%= f.email_field :email,class: 'form-control' , autofocus: true %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :password %>
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %><br />
+    <%= f.password_field :password, class: 'form-control' ,autocomplete: "off" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation,class: 'form-control' , autocomplete: "off" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :Birth_Day %><br />
+    <%=  f.date_select :dob,class: 'form-control' , start_year: 1979 ,class: 'form-control' %>
+
+  </div>
+  <hr>
+
+            <div class="form-group">
+                <%= f.label :gender %> <br>
+                <%= f.radio_button :gender  , "Male" ,:checked => true%>
+                <%= f.label :gender  , "Male" %>
+                <%= f.radio_button :gender , "Female" %>
+                <%= f.label :gender  , "Female" %>
+                </div>
+
+              <hr>
+          <div class="form-group">
+
+           <%= f.label :avatar, "Choose Your Avatar Picture" %>
+           <%= f.file_field :avatar,class: 'form-control' %>
+           </div>
+          <hr>
+
+     <div class="form-group">
+        <%= f.label :role %> <br>
+         <%= f.radio_button :role  , "instructor" ,:checked => true%>
+          <%= f.label :role  , "instructor" %>
+           <%= f.radio_button :role , "student" %>
+       <%= f.label :role  , "student" %>
+     </div>
+
+  <div class="actions">
+    <%= f.submit "Sign up" %>
+  </div>
+    </div>
+     </div>
+<% end %>
+<%= render "users/shared/links" %>
+
+<br>
+</div>
+   </div>
+   </section>

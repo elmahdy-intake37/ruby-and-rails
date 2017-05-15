@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @course.title %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @user_name %>
+</p>
+
+<% if can? :update, @course %>
+<%= link_to 'Edit', edit_course_path(@course) %> |
+<% end %>
+<!-- <% if can? :destroy, @course %>
+<%= link_to 'Delete', courses_path %>
+<% end %> -->
+<%= link_to 'Back', courses_path %>

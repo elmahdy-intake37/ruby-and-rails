@@ -1,0 +1,65 @@
+<!-- Start blog section -->
+<section id="blog">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="blog-area">
+          <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12">
+              <div class="blog-left blog-details">
+                <!-- Start single blog post -->
+                <article class="single-from-blog">
+                  <div class="blog-title">
+
+                    <td><%= link_to ' Like ', upvote_lecture_path(@lecture), method: :put   %>  <span>|</span> </td>
+
+                    like
+                    <%= lecture.get_upvotes.size %>
+
+                    <span>|</span>
+
+                   <td><%= link_to 'Spam', downvote_lecture_path(lecture), method: :put %></td>
+                   spam
+                   <%= lecture.get_downvotes.size %>
+
+                   <% if lecture.attachment.file %>
+                   <td><%= link_to "Download Lecture", lecture.attachment_url,class: 'btn btn-default' %></td>
+
+                                           <% end %>
+
+
+                                                     <h2><%= lecture.try(:title) %></h2>
+
+
+                                                                     </div>
+
+
+                                                   <figure>
+                                                       <%= image_tag(lecture.image)%>
+                                                 </figure>
+
+
+                  <div class="blog-details-content">
+
+
+
+                  <%= lecture.content.html_safe %>
+                  </div>
+                </article>
+
+                <div   style="  font-size: 20px;" id ='comments-container' >
+
+
+                </div>
+                <!-- End single blog post -->
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<%= link_to 'Edit',  edit_lecture_comment_path(@lecture) %> |
+<%= link_to 'Back',  lecture_comment_path %>
